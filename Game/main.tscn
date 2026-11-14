@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://cfmm2apkhs07h"]
 
+[ext_resource type="Texture2D" uid="uid://cmi47pf81y4m5" path="res://sprites/IMG_8792.jpg" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cfxc0yamfyv26" path="res://sprites/hand.png" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://dfb0bukud8tui" path="res://cursor.gd" id="3_lquwl"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xjg88"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t8vxo"]
+radius = 434.62625
+
 [node name="Main" type="Node" unique_id=49377690]
+
+[node name="MainMenu" type="Node2D" parent="." unique_id=174202774]
+
+[node name="MenuBackground" type="Sprite2D" parent="MainMenu" unique_id=1753093483]
+scale = Vector2(870, 652.5)
+texture = SubResource("PlaceholderTexture2D_xjg88")
+centered = false
+
+[node name="Door" type="Sprite2D" parent="MainMenu" unique_id=1888313310]
+position = Vector2(404.99994, 17.999998)
+scale = Vector2(0.2175926, 0.2175926)
+texture = ExtResource("1_h2yge")
+centered = false
+
+[node name="Cursor" type="CharacterBody2D" parent="." unique_id=879806809]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("3_lquwl")
+
+[node name="CursorSprite" type="Sprite2D" parent="Cursor" unique_id=2081301490]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_1bvp3")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor" unique_id=1910384362]
+position = Vector2(1039.9999, 1149.9999)
+shape = SubResource("CircleShape2D_t8vxo")
