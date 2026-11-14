@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lvn2knnovlpk"]
 
-[ext_resource type="Script" uid="uid://cgiv442amu7mp" path="res://room.gd" id="1_4o3f6"]
+[ext_resource type="Script" uid="uid://cgiv442amu7mp" path="res://room1.gd" id="1_4o3f6"]
 [ext_resource type="Texture2D" uid="uid://b8jmu1cv8bglf" path="res://sprites/room1.png" id="2_4o3f6"]
 [ext_resource type="Texture2D" uid="uid://cmpcawln7xmkr" path="res://sprites/room1_door.png" id="3_ka7wq"]
 [ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="3_v5vuv"]
@@ -24,45 +24,45 @@ centered = false
 
 [node name="Instructions" type="Sprite2D" parent="Background" unique_id=1858228130]
 
-[node name="Arrow" type="Area2D" parent="Background" unique_id=269523256]
+[node name="Arrow" type="Area2D" parent="." unique_id=269523256]
 visible = false
-position = Vector2(645.3334, 986.6667)
-scale = Vector2(2.6666667, 2.6666667)
+position = Vector2(242.00002, 370)
 monitoring = false
 script = ExtResource("5_x5k2b")
 
-[node name="DoorSpriteOpen" type="Sprite2D" parent="Background/Arrow" unique_id=1693976087]
+[node name="DoorSpriteOpen" type="Sprite2D" parent="Arrow" unique_id=1693976087]
 position = Vector2(-242.00002, -370)
 scale = Vector2(0.89503825, 0.87014735)
 texture = ExtResource("4_8cv3p")
 centered = false
 
-[node name="ArrowSprite" type="Sprite2D" parent="Background/Arrow" unique_id=961400329]
+[node name="ArrowSprite" type="Sprite2D" parent="Arrow" unique_id=961400329]
 position = Vector2(-105.000015, -37)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_v5vuv")
 centered = false
 
-[node name="ArrowCollision" type="CollisionShape2D" parent="Background/Arrow" unique_id=1885768986]
+[node name="ArrowCollision" type="CollisionShape2D" parent="Arrow" unique_id=1885768986]
 position = Vector2(-2.0000153, 25)
 shape = SubResource("RectangleShape2D_xjg88")
 
-[node name="Door" type="Area2D" parent="Background" unique_id=172891531]
+[node name="Door" type="Area2D" parent="." unique_id=172891531]
+scale = Vector2(0.375, 0.375)
 script = ExtResource("3_x5k2b")
 
-[node name="DoorSpriteClosed" type="Sprite2D" parent="Background/Door" unique_id=966881625]
+[node name="DoorSpriteClosed" type="Sprite2D" parent="Door" unique_id=966881625]
 texture = ExtResource("3_ka7wq")
 centered = false
 
-[node name="DoorCollision" type="CollisionShape2D" parent="Background/Door" unique_id=655711170]
+[node name="DoorCollision" type="CollisionShape2D" parent="Door" unique_id=655711170]
 position = Vector2(642.6667, 936)
 shape = SubResource("RectangleShape2D_1aa2q")
 
-[node name="Kaboom" type="AudioStreamPlayer2D" parent="Background/Door" unique_id=104983830]
+[node name="Kaboom" type="AudioStreamPlayer2D" parent="Door" unique_id=104983830]
 
-[connection signal="body_entered" from="Background/Arrow" to="Background/Arrow" method="_on_body_entered"]
-[connection signal="body_exited" from="Background/Arrow" to="Background/Arrow" method="_on_body_exited"]
-[connection signal="nextRoom" from="Background/Arrow" to="." method="_on_arrow_next_room"]
-[connection signal="body_entered" from="Background/Door" to="Background/Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Background/Door" to="Background/Door" method="_on_body_exited"]
-[connection signal="punched" from="Background/Door" to="." method="_on_door_punched"]
+[connection signal="body_entered" from="Arrow" to="Arrow" method="_on_body_entered"]
+[connection signal="body_exited" from="Arrow" to="Arrow" method="_on_body_exited"]
+[connection signal="nextRoom" from="Arrow" to="." method="_on_arrow_next_room"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[connection signal="punched" from="Door" to="." method="_on_door_punched"]

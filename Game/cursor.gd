@@ -2,8 +2,11 @@ extends CharacterBody2D
 
 @export var speed = 400
 
+var Active: bool = false
+
 func _move_cursor():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
+	if(!Active): return #Ensures you can't mess with anything before entering the game
+	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * speed
 
 func _physics_process(delta):
@@ -12,6 +15,7 @@ func _physics_process(delta):
 	_interact(input_event)
 
 func _interact(event):
+	if(!Active): return #Ensures you can't mess with anything before entering the game
 	if Input.is_action_pressed("interact"): 
 		$PunchSound.play()
 		rotation_degrees = -10
