@@ -12,6 +12,14 @@ func _physics_process(delta):
 	_interact(input_event)
 
 func _interact(event):
-	if event.is_action_pressed("interact"):
-		self.rotate(0.5)
-	
+	if Input.is_action_pressed("interact"): 
+		$PunchSound.play()
+		rotation_degrees = -10
+		position.x -= 10
+		await get_tree().create_timer(0.05).timeout
+		rotation_degrees = 0
+		position.x += 10
+		
+		
+		
+		

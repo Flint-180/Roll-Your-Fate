@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b11ryu8ny7s3n"
+path="res://.godot/imported/game jam 4.ogg-b8e5f3f3b93cbe9336338553f48c3253.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/game jam 4.ogg"
+dest_files=["res://.godot/imported/game jam 4.ogg-b8e5f3f3b93cbe9336338553f48c3253.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

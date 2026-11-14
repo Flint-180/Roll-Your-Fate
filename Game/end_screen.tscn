@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b52gepmsi4qxl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3iaq5"]
+load_path = "res://.godot/imported/outside.png-457c97fc93306a1c14a96f9570d748f8.ctex"
+
+[node name="EndScreen" type="Node2D" unique_id=1967615744]
+
+[node name="EndBackground" type="Sprite2D" parent="." unique_id=1268754642]
+scale = Vector2(0.8356482, 0.8343622)
+texture = SubResource("CompressedTexture2D_3iaq5")
+centered = false

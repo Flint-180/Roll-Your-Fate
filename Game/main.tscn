@@ -1,38 +1,46 @@
 [gd_scene format=3 uid="uid://cfmm2apkhs07h"]
 
-[ext_resource type="Texture2D" uid="uid://cmi47pf81y4m5" path="res://sprites/IMG_8792.jpg" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://u4giwqb464vq" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cfxc0yamfyv26" path="res://sprites/hand.png" id="2_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://b11ryu8ny7s3n" path="res://sounds/game jam 4.ogg" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://lvn2knnovlpk" path="res://room.tscn" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://dfb0bukud8tui" path="res://cursor.gd" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bswf2jrtm5ht3" path="res://menu.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://banba5soqk4to" path="res://sounds/PunchSoundEffect2.ogg" id="7_5vw27"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xjg88"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_t8vxo"]
-radius = 434.62625
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lquwl"]
+radius = 299.99976
+height = 799.9995
 
 [node name="Main" type="Node" unique_id=49377690]
+script = ExtResource("1_1bvp3")
 
-[node name="MainMenu" type="Node2D" parent="." unique_id=174202774]
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=444982350]
+stream = ExtResource("2_272bh")
 
-[node name="MenuBackground" type="Sprite2D" parent="MainMenu" unique_id=1753093483]
-scale = Vector2(870, 652.5)
-texture = SubResource("PlaceholderTexture2D_xjg88")
-centered = false
+[node name="Menu" parent="." unique_id=43580161 instance=ExtResource("4_1bvp3")]
 
-[node name="Door" type="Sprite2D" parent="MainMenu" unique_id=1888313310]
-position = Vector2(404.99994, 17.999998)
-scale = Vector2(0.2175926, 0.2175926)
-texture = ExtResource("1_h2yge")
-centered = false
+[node name="Room" parent="." unique_id=1680078702 instance=ExtResource("3_7mycd")]
+visible = false
 
-[node name="Cursor" type="CharacterBody2D" parent="." unique_id=879806809]
-scale = Vector2(0.1, 0.1)
+[node name="Cursor" type="CharacterBody2D" parent="." unique_id=1713217566]
+position = Vector2(540, 405)
+scale = Vector2(0.05000001, 0.05000001)
 script = ExtResource("3_lquwl")
 
-[node name="CursorSprite" type="Sprite2D" parent="Cursor" unique_id=2081301490]
-scale = Vector2(0.99999994, 0.99999994)
+[node name="CursorSprite" type="Sprite2D" parent="Cursor" unique_id=986217873]
+position = Vector2(-1443.3096, -164.89453)
+rotation = -0.52359873
+scale = Vector2(1.0363221, 0.91344684)
 texture = ExtResource("2_1bvp3")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor" unique_id=1910384362]
-position = Vector2(1039.9999, 1149.9999)
-shape = SubResource("CircleShape2D_t8vxo")
+[node name="CursorHitbox" type="CollisionShape2D" parent="Cursor" unique_id=171217277]
+position = Vector2(-80.00293, 219.99951)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("CapsuleShape2D_lquwl")
+
+[node name="PunchSound" type="AudioStreamPlayer2D" parent="Cursor" unique_id=230932881]
+stream = ExtResource("7_5vw27")
+
+[connection signal="cursorOn" from="Menu" to="." method="_on_menu_cursor_on"]
