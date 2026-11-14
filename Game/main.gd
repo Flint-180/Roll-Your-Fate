@@ -16,8 +16,10 @@ func _on_menu_cursor_on() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$"Cursor".visible = true
 	$"Cursor".Active = true
+	Global.cursor = $Cursor
 	
 	$"Tutorial".visible = true
+	await get_tree().create_timer(0.1).timeout
 	$"Tutorial".Active = true
 
 # This is never used, and might cause confusion if it's active - Robin
@@ -30,5 +32,6 @@ func _on_room1_next_room() -> void:
 	$"Tutorial".Active = false
 	
 	$"Room2 Demo".visible = true
+	await get_tree().create_timer(0.1).timeout
 	$"Room2 Demo".Active = true
 	pass # Replace with function body.
