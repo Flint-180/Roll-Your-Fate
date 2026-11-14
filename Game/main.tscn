@@ -12,6 +12,14 @@
 radius = 299.99976
 height = 799.9995
 
+[sub_resource type="Animation" id="Animation_272bh"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5vw27"]
+_data = {
+&"new_animation": SubResource("Animation_272bh")
+}
+
 [node name="Main" type="Node" unique_id=49377690]
 script = ExtResource("1_1bvp3")
 
@@ -20,7 +28,7 @@ stream = ExtResource("2_272bh")
 
 [node name="Menu" parent="." unique_id=43580161 instance=ExtResource("4_1bvp3")]
 
-[node name="Room" parent="." unique_id=1680078702 instance=ExtResource("3_7mycd")]
+[node name="Tutorial" parent="." unique_id=1680078702 instance=ExtResource("3_7mycd")]
 visible = false
 
 [node name="Cursor" type="CharacterBody2D" parent="." unique_id=1713217566]
@@ -42,5 +50,8 @@ shape = SubResource("CapsuleShape2D_lquwl")
 
 [node name="PunchSound" type="AudioStreamPlayer2D" parent="Cursor" unique_id=230932881]
 stream = ExtResource("7_5vw27")
+
+[node name="FadeFromBlack" type="AnimationPlayer" parent="." unique_id=1710477477]
+libraries/ = SubResource("AnimationLibrary_5vw27")
 
 [connection signal="cursorOn" from="Menu" to="." method="_on_menu_cursor_on"]

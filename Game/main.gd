@@ -1,6 +1,5 @@
 extends Node
 
-@onready var TutorialRoom = get_node("Room")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,9 +12,10 @@ func _process(delta: float) -> void:
 	
 
 func _on_menu_cursor_on() -> void:
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Cursor.visible = true
-	$Room.visible = true
+	$Tutorial.visible = true
 
 
 func _on_room_punched() -> void:

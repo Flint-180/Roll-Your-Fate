@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dl7kms8xtchlf"]
+
+[ext_resource type="Script" uid="uid://cgiv442amu7mp" path="res://room.gd" id="1_e6hjw"]
+[ext_resource type="Texture2D" uid="uid://32ai36qupw7m" path="res://sprites/room_2_bg.png" id="2_hrfef"]
+[ext_resource type="Texture2D" uid="uid://3uihmvqd7ofr" path="res://sprites/metal_door_punched.png" id="3_gg573"]
+[ext_resource type="Script" uid="uid://dg1ih6w02kmkk" path="res://arrow.gd" id="4_2nb8s"]
+[ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="5_r63ts"]
+[ext_resource type="Script" uid="uid://bndt8i15av2qo" path="res://door.gd" id="6_vc1db"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjg88"]
+size = Vector2(162.5, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee5kq"]
+size = Vector2(645.5833, 553.8333)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3afyh"]
+load_path = "res://.godot/imported/metal_door.png-b26eab183eec05a68f5f315fd867efbd.ctex"
+
+[node name="Room1" type="Node2D" unique_id=1680078702]
+script = ExtResource("1_e6hjw")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=847334843]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_hrfef")
+centered = false
+
+[node name="DoorSpriteOpen" type="Sprite2D" parent="Background" unique_id=1693976087]
+position = Vector2(1618.6667, 205.33334)
+scale = Vector2(0.72694063, 0.74937713)
+texture = ExtResource("3_gg573")
+centered = false
+
+[node name="Arrow" type="Area2D" parent="Background" unique_id=269523256]
+position = Vector2(2162.6667, 986.6667)
+scale = Vector2(2.6666667, 2.6666667)
+monitoring = false
+script = ExtResource("4_2nb8s")
+
+[node name="ArrowSprite" type="Sprite2D" parent="Background/Arrow" unique_id=961400329]
+position = Vector2(-105.000015, -37)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_r63ts")
+centered = false
+
+[node name="ArrowCollision" type="CollisionShape2D" parent="Background/Arrow" unique_id=1885768986]
+position = Vector2(-2.0000153, 25)
+shape = SubResource("RectangleShape2D_xjg88")
+
+[node name="Puzzle" type="Area2D" parent="Background" unique_id=172891531]
+script = ExtResource("6_vc1db")
+
+[node name="PuzzleCollision" type="CollisionShape2D" parent="Background/Puzzle" unique_id=655711170]
+position = Vector2(704.00006, 1338.6667)
+shape = SubResource("RectangleShape2D_ee5kq")
+
+[node name="DoorSpriteClosed" type="Sprite2D" parent="Background/Puzzle" unique_id=966881625]
+visible = false
+position = Vector2(1592.0004, 202.66669)
+scale = Vector2(0.7936074, 0.7502076)
+texture = SubResource("CompressedTexture2D_3afyh")
+centered = false
+
+[node name="Kaboom" type="AudioStreamPlayer2D" parent="Background/Puzzle/DoorSpriteClosed" unique_id=104983830]
+position = Vector2(-2006.0299, -270.14746)
+scale = Vector2(1.2600688, 1.3329644)
+
+[connection signal="body_entered" from="Background/Arrow" to="Background/Arrow" method="_on_body_entered"]
+[connection signal="body_exited" from="Background/Arrow" to="Background/Arrow" method="_on_body_exited"]
+[connection signal="nextRoom" from="Background/Arrow" to="." method="_on_arrow_next_room"]
+[connection signal="body_entered" from="Background/Puzzle" to="Background/Puzzle" method="_on_body_entered"]
+[connection signal="body_exited" from="Background/Puzzle" to="Background/Puzzle" method="_on_body_exited"]
+[connection signal="punched" from="Background/Puzzle" to="." method="_on_door_punched"]

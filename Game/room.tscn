@@ -22,7 +22,10 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("2_4o3f6")
 centered = false
 
+[node name="Instructions" type="Sprite2D" parent="Background" unique_id=1858228130]
+
 [node name="Arrow" type="Area2D" parent="Background" unique_id=269523256]
+visible = false
 position = Vector2(645.3334, 986.6667)
 scale = Vector2(2.6666667, 2.6666667)
 monitoring = false
