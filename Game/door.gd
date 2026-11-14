@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if (!room.Active): return
 	if hovering == true:
-		if Input.is_action_pressed("interact"):
+		if Global.cursor.Punch:
 			punched.emit()
 
 

@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dfb0bukud8tui" path="res://cursor.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bswf2jrtm5ht3" path="res://menu.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c45chxviappf1" path="res://room2.tscn" id="5_5vw27"]
-[ext_resource type="Script" uid="uid://dorwbtt30dw2v" path="res://room2.gd" id="6_kek77"]
 [ext_resource type="AudioStream" uid="uid://banba5soqk4to" path="res://sounds/PunchSoundEffect2.ogg" id="7_5vw27"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lquwl"]
@@ -35,7 +34,6 @@ visible = false
 
 [node name="Room2 Demo" parent="." unique_id=1142944235 instance=ExtResource("5_5vw27")]
 visible = false
-script = ExtResource("6_kek77")
 
 [node name="Cursor" type="CharacterBody2D" parent="." unique_id=1713217566]
 position = Vector2(540, 405)
