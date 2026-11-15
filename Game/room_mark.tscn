@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://c47jy51iraix0"]
+
+[ext_resource type="Script" uid="uid://dorwbtt30dw2v" path="res://room2.gd" id="1_p2yuh"]
+[ext_resource type="Texture2D" uid="uid://brerpjcu1rao3" path="res://sprites/computer.png" id="2_5vutl"]
+[ext_resource type="Script" uid="uid://dg1ih6w02kmkk" path="res://arrow.gd" id="2_nystt"]
+[ext_resource type="Texture2D" uid="uid://3uihmvqd7ofr" path="res://sprites/metal_door_punched.png" id="3_5vutl"]
+[ext_resource type="Texture2D" uid="uid://c7eb6nxvuf7rh" path="res://sprites/mark_screen.png" id="3_p140f"]
+[ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="4_p140f"]
+[ext_resource type="Script" uid="uid://bndt8i15av2qo" path="res://door.gd" id="5_7ru36"]
+[ext_resource type="Texture2D" uid="uid://y0rp5pw1yg04" path="res://sprites/metal_door.png" id="6_pewtb"]
+[ext_resource type="Script" uid="uid://8sbtgovte38y" path="res://up_button_mark.gd" id="9_6kgu3"]
+[ext_resource type="Texture2D" uid="uid://c7ghy8wpgfwms" path="res://sprites/outlet_blue.png" id="10_3hf2k"]
+[ext_resource type="Texture2D" uid="uid://crmudylllgv31" path="res://sprites/outlet_yellow.png" id="11_uenf5"]
+[ext_resource type="Texture2D" uid="uid://cwvxf5oou6cyr" path="res://sprites/outlet_green.png" id="12_hewd8"]
+[ext_resource type="Texture2D" uid="uid://cb2vd6sikn2ej" path="res://sprites/outlet_red.png" id="13_y86ry"]
+[ext_resource type="Texture2D" uid="uid://dfvfyti5ysj8u" path="res://sprites/light_button_on.png" id="14_fiv5h"]
+[ext_resource type="Script" uid="uid://bg8ug1i1vhc1b" path="res://mark_controls.gd" id="15_3hf2k"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7on73"]
+load_path = "res://.godot/imported/room_2_bg.png-20c02df0e3962d23cf305e013dd68ab6.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjg88"]
+size = Vector2(162.5, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aa2q"]
+size = Vector2(574.9167, 721.8334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyjom"]
+size = Vector2(156, 152)
+
+[node name="Room2" type="Node2D" unique_id=1680078702]
+script = ExtResource("1_p2yuh")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=847334843]
+scale = Vector2(0.375, 0.375)
+texture = SubResource("CompressedTexture2D_7on73")
+centered = false
+
+[node name="Computer" type="Sprite2D" parent="Background" unique_id=209254835]
+position = Vector2(872, 1693.3334)
+scale = Vector2(7.4862914, 7.486292)
+texture = ExtResource("2_5vutl")
+
+[node name="MarkScreen" type="Sprite2D" parent="Background/Computer" unique_id=1011627432]
+position = Vector2(-4.557785, -31.368439)
+scale = Vector2(0.15024655, 0.15024652)
+texture = ExtResource("3_p140f")
+
+[node name="Arrow" type="Area2D" parent="." unique_id=269523256]
+position = Vector2(242.00002, 370)
+monitoring = false
+script = ExtResource("2_nystt")
+
+[node name="DoorSpriteOpen" type="Sprite2D" parent="Arrow" unique_id=1693976087]
+position = Vector2(402, -290)
+scale = Vector2(0.2541096, 0.2735426)
+texture = ExtResource("3_5vutl")
+centered = false
+
+[node name="ArrowSprite" type="Sprite2D" parent="Arrow" unique_id=961400329]
+position = Vector2(500, -42)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_p140f")
+centered = false
+
+[node name="ArrowCollision" type="CollisionShape2D" parent="Arrow" unique_id=1885768986]
+position = Vector2(603, 20)
+shape = SubResource("RectangleShape2D_xjg88")
+
+[node name="Door" type="Area2D" parent="." unique_id=172891531]
+scale = Vector2(0.375, 0.375)
+script = ExtResource("5_7ru36")
+
+[node name="DoorSpriteClosed" type="Sprite2D" parent="Door" unique_id=966881625]
+position = Vector2(1717.3333, 194.66666)
+scale = Vector2(0.71324205, 0.75153625)
+texture = ExtResource("6_pewtb")
+centered = false
+
+[node name="DoorCollision" type="CollisionShape2D" parent="Door" unique_id=655711170]
+position = Vector2(2218.6667, 1210.6666)
+shape = SubResource("RectangleShape2D_1aa2q")
+
+[node name="Kaboom" type="AudioStreamPlayer2D" parent="Door" unique_id=104983830]
+
+[node name="UpButton" type="Area2D" parent="." unique_id=2139275895]
+position = Vector2(310, 118)
+script = ExtResource("9_6kgu3")
+
+[node name="OutletBlue" type="Sprite2D" parent="UpButton" unique_id=1291015889]
+texture = ExtResource("10_3hf2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpButton" unique_id=323980883]
+shape = SubResource("RectangleShape2D_pyjom")
+
+[node name="DownButton" type="Area2D" parent="." unique_id=49627108]
+position = Vector2(319, 306)
+
+[node name="OutletBlue" type="Sprite2D" parent="DownButton" unique_id=834707817]
+texture = ExtResource("11_uenf5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownButton" unique_id=1364676627]
+shape = SubResource("RectangleShape2D_pyjom")
+
+[node name="RightButton" type="Area2D" parent="." unique_id=551162332]
+position = Vector2(499, 217)
+
+[node name="OutletBlue" type="Sprite2D" parent="RightButton" unique_id=2059235163]
+texture = ExtResource("12_hewd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightButton" unique_id=117716538]
+shape = SubResource("RectangleShape2D_pyjom")
+
+[node name="LeftButton" type="Area2D" parent="." unique_id=330328072]
+position = Vector2(135, 200)
+
+[node name="OutletBlue" type="Sprite2D" parent="LeftButton" unique_id=898146132]
+texture = ExtResource("13_y86ry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftButton" unique_id=1391413950]
+shape = SubResource("RectangleShape2D_pyjom")
+
+[node name="LightButtonOn" type="Sprite2D" parent="." unique_id=682959146]
+position = Vector2(703.00006, 174.00002)
+scale = Vector2(0.5808824, 0.5808824)
+texture = ExtResource("14_fiv5h")
+
+[node name="LightButtonOn2" type="Sprite2D" parent="." unique_id=2065488923]
+position = Vector2(788, 171.00002)
+scale = Vector2(0.5808824, 0.5808824)
+texture = ExtResource("14_fiv5h")
+
+[node name="LightButtonOn3" type="Sprite2D" parent="." unique_id=1214131201]
+position = Vector2(877.00006, 175.00002)
+scale = Vector2(0.5808824, 0.5808824)
+texture = ExtResource("14_fiv5h")
+
+[node name="LightButtonOn4" type="Sprite2D" parent="." unique_id=1135092837]
+position = Vector2(962, 182.00002)
+scale = Vector2(0.5808824, 0.5808824)
+texture = ExtResource("14_fiv5h")
+
+[node name="Mark_Controls" type="Node2D" parent="." unique_id=1603872621]
+script = ExtResource("15_3hf2k")
+
+[connection signal="body_entered" from="Arrow" to="Arrow" method="_on_body_entered"]
+[connection signal="body_exited" from="Arrow" to="Arrow" method="_on_body_exited"]
+[connection signal="nextRoom" from="Arrow" to="." method="_on_arrow_next_room"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[connection signal="punched" from="Door" to="." method="_on_door_punched"]

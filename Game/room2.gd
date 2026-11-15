@@ -8,6 +8,7 @@ func _ready() -> void:
 	$Arrow.visible = false
 	$Arrow.disable_mode = true
 	$Door.visible = true
+	$Door.openReady = true # What puzzle does this one have?
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
