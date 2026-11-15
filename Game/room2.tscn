@@ -214,6 +214,7 @@ position = Vector2(2245.3335, 1456)
 texture = ExtResource("10_cv072")
 
 [node name="Kaboom" type="AudioStreamPlayer2D" parent="Puzzle2" unique_id=104983830]
+volume_db = 18.0
 
 [connection signal="body_entered" from="Arrow" to="Arrow" method="_on_body_entered"]
 [connection signal="body_exited" from="Arrow" to="Arrow" method="_on_body_exited"]

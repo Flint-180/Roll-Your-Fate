@@ -38,8 +38,9 @@ func toggle_lights() -> void:
 	toggle_lights()
 
 func _on_door_punched() -> void:
+	if (!Active): return
 	if can_click:
-		print("Click")
+		print("click")
 		clicks += 1
 		if clicks >= CLICKS_NEEDED:
 			$Door/Kaboom.play()

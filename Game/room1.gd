@@ -20,6 +20,7 @@ func _on_door_punched() -> void:
 	if(!Active): return
 	$Door/Kaboom.play()
 	$Door.visible = false
+	$Door.monitoring = false
 	$Arrow.visible = true
 	await get_tree().create_timer(0.05).timeout
 	$Arrow.monitoring = true

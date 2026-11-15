@@ -32,14 +32,18 @@ func _on_menu_cursor_on() -> void:
 	$FadeToBlack.play("fade")
 	await get_tree().create_timer(1).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	$"Cursor".visible = true
-	$"Cursor".Active = true
-	Global.cursor = $Cursor
 	
 	$"Tutorial".visible = true
 	_wait()
 	$"Tutorial".Active = true
 	$FadeToBlack.play("unfade")
+	await get_tree().create_timer(1).timeout
+	$Tutorial/AnimationPlayer.play("text crawl")
+	await $Tutorial/AnimationPlayer.animation_finished
+
+	$"Cursor".visible = true
+	$"Cursor".Active = true
+	Global.cursor = $Cursor
 
 
 func _on_room1_next_room() -> void:
@@ -47,7 +51,7 @@ func _on_room1_next_room() -> void:
 
 func _on_room_2_next_room() -> void:
 	_change_room("Room2", "Room3")
-	await get_tree().create_timer(.8).timeout
+	await get_tree().create_timer(.6).timeout
 	$Room3/AnimationPlayer.play("firepuzzle")
 
 

@@ -40,7 +40,7 @@ centered = false
 
 [node name="Kaboom" type="AudioStreamPlayer2D" parent="Door" unique_id=229311290]
 stream = ExtResource("5_5am63")
-volume_db = 3.0
+volume_db = 18.0
 
 [node name="DoorWrong" type="AudioStreamPlayer2D" parent="Door" unique_id=1666017909]
 stream = ExtResource("6_drv2v")
@@ -55,24 +55,25 @@ position = Vector2(847, 98)
 texture = ExtResource("3_27tay")
 
 [node name="Arrow" type="Area2D" parent="." unique_id=1699280669]
-position = Vector2(242.00002, 370)
+visible = false
+position = Vector2(751, 387)
 monitoring = false
 script = ExtResource("6_st42t")
 
 [node name="DoorSpriteOpen" type="Sprite2D" parent="Arrow" unique_id=1456437917]
-position = Vector2(357, -252)
+position = Vector2(-152, -269)
 scale = Vector2(1.5515696, 1.2358078)
 texture = ExtResource("9_drv2v")
 centered = false
 
 [node name="ArrowSprite" type="Sprite2D" parent="Arrow" unique_id=742003465]
-position = Vector2(409, -27)
+position = Vector2(-100, -44)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_drv2v")
 centered = false
 
 [node name="ArrowCollision" type="CollisionShape2D" parent="Arrow" unique_id=813492884]
-position = Vector2(512, 35)
+position = Vector2(3, 18)
 shape = SubResource("RectangleShape2D_eiala")
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

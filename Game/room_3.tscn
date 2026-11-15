@@ -317,6 +317,7 @@ disabled = true
 
 [node name="Kaboom" type="AudioStreamPlayer2D" parent="Door" unique_id=1297788273]
 stream = ExtResource("8_b45jr")
+volume_db = 16.0
 
 [node name="Puzzle3" type="Area2D" parent="." unique_id=172891531]
 scale = Vector2(0.375, 0.375)
