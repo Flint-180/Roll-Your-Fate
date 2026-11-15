@@ -32,7 +32,7 @@ stream = ExtResource("2_272bh")
 [node name="Tutorial" parent="." unique_id=1680078702 instance=ExtResource("3_7mycd")]
 visible = false
 
-[node name="Room2 Demo" parent="." unique_id=1142944235 instance=ExtResource("5_5vw27")]
+[node name="Room2 Demo" parent="." unique_id=1863758768 instance=ExtResource("5_5vw27")]
 visible = false
 
 [node name="Cursor" type="CharacterBody2D" parent="." unique_id=1713217566]

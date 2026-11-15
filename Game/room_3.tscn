@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cvhf3d1pkbtyc"]
+
+[ext_resource type="Script" uid="uid://cgiv442amu7mp" path="res://room1.gd" id="1_kqys3"]
+[ext_resource type="Texture2D" uid="uid://cdrx0yrbjn21v" path="res://sprites/room_6.png" id="2_b45jr"]
+[ext_resource type="Script" uid="uid://dg1ih6w02kmkk" path="res://arrow.gd" id="3_vp30c"]
+[ext_resource type="Texture2D" uid="uid://bng34bccgc5ew" path="res://sprites/door_broken.png" id="4_kc7qu"]
+[ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="5_83p2d"]
+[ext_resource type="Script" uid="uid://bndt8i15av2qo" path="res://door.gd" id="6_qpsv8"]
+[ext_resource type="Texture2D" uid="uid://cmnyp2jg1c3g5" path="res://sprites/door_blue.png" id="7_vp30c"]
+[ext_resource type="AudioStream" uid="uid://c1ujucxrlf5bv" path="res://sounds/kaboom_bitcrushed.ogg" id="8_b45jr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjg88"]
+size = Vector2(162.5, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aa2q"]
+size = Vector2(603.1666, 1225.0001)
+
+[sub_resource type="Animation" id="Animation_kc7qu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Fire:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_83p2d"]
+resource_name = "firepuzzle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Fire:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qpsv8"]
+_data = {
+&"RESET": SubResource("Animation_kc7qu"),
+&"firepuzzle": SubResource("Animation_83p2d")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wfta2"]
+load_path = "res://.godot/imported/fire.png-cf9a1bb5bea5e6dabc3d45d7a205c0cf.ctex"
+
+[node name="Room3" type="Node2D" unique_id=1680078702]
+script = ExtResource("1_kqys3")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=847334843]
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("2_b45jr")
+centered = false
+
+[node name="Arrow" type="Area2D" parent="." unique_id=269523256]
+visible = false
+position = Vector2(242.00002, 370)
+monitoring = false
+script = ExtResource("3_vp30c")
+
+[node name="DoorSpriteOpen" type="Sprite2D" parent="Arrow" unique_id=1693976087]
+position = Vector2(-242.00002, -370)
+scale = Vector2(0.89503825, 0.87014735)
+texture = ExtResource("4_kc7qu")
+centered = false
+
+[node name="ArrowSprite" type="Sprite2D" parent="Arrow" unique_id=961400329]
+position = Vector2(-105.000015, -37)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_83p2d")
+centered = false
+
+[node name="ArrowCollision" type="CollisionShape2D" parent="Arrow" unique_id=1885768986]
+position = Vector2(-2.0000153, 25)
+shape = SubResource("RectangleShape2D_xjg88")
+
+[node name="Door" type="Area2D" parent="." unique_id=172891531]
+scale = Vector2(0.375, 0.375)
+script = ExtResource("6_qpsv8")
+
+[node name="DoorSpriteClosed" type="Sprite2D" parent="Door" unique_id=966881625]
+position = Vector2(602.6666, 415.99997)
+scale = Vector2(2.894425, 2.5971944)
+texture = ExtResource("7_vp30c")
+centered = false
+
+[node name="DoorCollision" type="CollisionShape2D" parent="Door" unique_id=655711170]
+position = Vector2(1008.00006, 1053.3334)
+shape = SubResource("RectangleShape2D_1aa2q")
+
+[node name="Kaboom" type="AudioStreamPlayer2D" parent="Door" unique_id=104983830]
+stream = ExtResource("8_b45jr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=435470798]
+libraries/ = SubResource("AnimationLibrary_qpsv8")
+
+[node name="Fire" type="Sprite2D" parent="AnimationPlayer" unique_id=1909019753]
+position = Vector2(394.97372, 429.89993)
+scale = Vector2(0.375, 0.33394352)
+texture = SubResource("CompressedTexture2D_wfta2")
+
+[connection signal="body_entered" from="Arrow" to="Arrow" method="_on_body_entered"]
+[connection signal="body_exited" from="Arrow" to="Arrow" method="_on_body_exited"]
+[connection signal="nextRoom" from="Arrow" to="." method="_on_arrow_next_room"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[connection signal="punched" from="Door" to="." method="_on_door_punched"]

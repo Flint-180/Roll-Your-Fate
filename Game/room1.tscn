@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cgiv442amu7mp" path="res://room1.gd" id="1_4o3f6"]
 [ext_resource type="Texture2D" uid="uid://b8jmu1cv8bglf" path="res://sprites/room1.png" id="2_4o3f6"]
+[ext_resource type="Texture2D" uid="uid://bm6ms8k6i42bv" path="res://sprites/note.png" id="3_0c6cg"]
 [ext_resource type="Texture2D" uid="uid://cmpcawln7xmkr" path="res://sprites/room1_door.png" id="3_ka7wq"]
 [ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="3_v5vuv"]
 [ext_resource type="Script" uid="uid://bndt8i15av2qo" path="res://door.gd" id="3_x5k2b"]
 [ext_resource type="Texture2D" uid="uid://bng34bccgc5ew" path="res://sprites/door_broken.png" id="4_8cv3p"]
+[ext_resource type="Texture2D" uid="uid://cs1jh82akl5cn" path="res://sprites/arrow_keys.png" id="4_54482"]
+[ext_resource type="Texture2D" uid="uid://cb5y3d20t8lh3" path="res://sprites/space_bar_labeled.png" id="5_uqw6m"]
 [ext_resource type="Script" uid="uid://dg1ih6w02kmkk" path="res://arrow.gd" id="5_x5k2b"]
+[ext_resource type="AudioStream" uid="uid://cavoaj8bdan18" path="res://sounds/kaboom_bitcrushed_lower.ogg" id="11_54482"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjg88"]
 size = Vector2(162.5, 84)
@@ -23,6 +27,20 @@ texture = ExtResource("2_4o3f6")
 centered = false
 
 [node name="Instructions" type="Sprite2D" parent="Background" unique_id=1858228130]
+position = Vector2(2072, 765.3332)
+rotation = 0.20420352
+scale = Vector2(2.4352386, 2.4352384)
+texture = ExtResource("3_0c6cg")
+
+[node name="Arrows" type="Sprite2D" parent="Background/Instructions" unique_id=2095680784]
+position = Vector2(-1.2683125, -60.12372)
+scale = Vector2(0.5559717, 0.50924844)
+texture = ExtResource("4_54482")
+
+[node name="Spacebar" type="Sprite2D" parent="Background/Instructions" unique_id=413551292]
+position = Vector2(-6.9037476, 58.46142)
+scale = Vector2(0.24512239, 0.24512239)
+texture = ExtResource("5_uqw6m")
 
 [node name="Arrow" type="Area2D" parent="." unique_id=269523256]
 visible = false
@@ -59,6 +77,7 @@ position = Vector2(642.6667, 936)
 shape = SubResource("RectangleShape2D_1aa2q")
 
 [node name="Kaboom" type="AudioStreamPlayer2D" parent="Door" unique_id=104983830]
+stream = ExtResource("11_54482")
 
 [connection signal="body_entered" from="Arrow" to="Arrow" method="_on_body_entered"]
 [connection signal="body_exited" from="Arrow" to="Arrow" method="_on_body_exited"]

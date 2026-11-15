@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 func _on_door_punched() -> void:
 	if(!Active): return
-	
+	$Door/Kaboom.play()
 	$Door.visible = false
 	$Arrow.visible = true
 	await get_tree().create_timer(0.05).timeout
@@ -28,6 +28,5 @@ func _on_door_punched() -> void:
 
 func _on_arrow_next_room() -> void:
 	if(!Active): return
-	#get_tree().change_scene_to_file("res://room2.tscn")
 	nextRoom.emit()
 	pass
