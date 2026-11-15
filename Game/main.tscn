@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cvhf3d1pkbtyc" path="res://room_3.tscn" id="6_kek77"]
 [ext_resource type="AudioStream" uid="uid://banba5soqk4to" path="res://sounds/PunchSoundEffect2.ogg" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://2w4jfexdmihi" path="res://lights_room.tscn" id="7_efxa6"]
+[ext_resource type="PackedScene" uid="uid://c47jy51iraix0" path="res://room_mark.tscn" id="8_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://bg6wu12wisaau" path="res://sprites/Black.png" id="9_kek77"]
+[ext_resource type="Script" uid="uid://bu0x1plb05a7" path="res://room_mark.gd" id="9_w48qg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lquwl"]
 radius = 299.99976
@@ -74,6 +76,10 @@ visible = false
 [node name="Room4" parent="." unique_id=699156660 instance=ExtResource("7_efxa6")]
 visible = false
 
+[node name="RoomMark" parent="." unique_id=747199188 instance=ExtResource("8_ycdy4")]
+visible = false
+script = ExtResource("9_w48qg")
+
 [node name="Cursor" type="CharacterBody2D" parent="." unique_id=1713217566]
 position = Vector2(540, 405)
 scale = Vector2(0.05000001, 0.05000001)
@@ -109,3 +115,4 @@ texture = ExtResource("9_kek77")
 [connection signal="nextRoom" from="Room2" to="." method="_on_room_2_next_room"]
 [connection signal="nextRoom" from="Room3" to="." method="_on_room_3_next_room"]
 [connection signal="nextRoom" from="Room4" to="." method="_on_room_4_next_room"]
+[connection signal="nextRoom" from="RoomMark" to="." method="_on_room_mark_next_room"]

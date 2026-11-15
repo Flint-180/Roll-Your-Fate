@@ -4,6 +4,7 @@ var Active: bool = false
 signal nextRoom
 
 var counter = 0
+var solved = false
 
 var broken = load("res://sprites/water_punched.png")
 var notBroken = load("res://sprites/water1.png")
@@ -12,7 +13,6 @@ var notBroken = load("res://sprites/water1.png")
 func _ready() -> void:
 	$AnimationPlayer/Fire.visible = false
 	$AnimationPlayer/Fire2.visible = false
-	$AnimationPlayer.play("firepuzzle")
 	$Arrow.visible = false
 	$Arrow.disable_mode = true
 	$Puzzle3.visible = true
@@ -39,15 +39,17 @@ func _on_arrow_next_room() -> void:
 
 
 func _on_puzzle_3_punched() -> void:
-	$Puzzle3/Fountain.texture = broken
-	await get_tree().create_timer(0.2).timeout
-	$Puzzle3/Fountain.texture = notBroken
-	counter += 1
+	if solved == false:
+		$Puzzle3/Fountain.texture = broken
+		await get_tree().create_timer(0.15).timeout
+		$Puzzle3/Fountain.texture = notBroken
+		counter += 1
 	
-	if counter >= 5:
+	if counter >= 5 && solved == false:
 		$Puzzle3/Fountain.texture = broken
 		$Puzzle3/Water.visible = true
 		$AnimationPlayer.play("fireout")
 		
 		$Door/DoorCollision.disabled = false
+		solved = true
 	
