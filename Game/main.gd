@@ -18,21 +18,29 @@ func _wait() -> void:
 	await get_tree().create_timer(0.5)
 
 #Deactivates and hids first room, activates and shows second room
+#Deactivates and hids first room, activates and shows second room
 func _change_room(start: String, end: String) -> void:
+	$FadeToBlack.play("fade")
+	await $FadeToBlack.animation_finished
 	get_node(start).visible = false
 	get_node(start).Active = false
-	
+
 	get_node(end).visible = true
 	_wait()
 	get_node(end).Active = true
+	$FadeToBlack.play("unfade")
+	await $FadeToBlack.animation_finished
 
 func _on_menu_cursor_on() -> void:
+	$FadeToBlack.play("fade")
+	await get_tree().create_timer(1).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	$"Tutorial".visible = true
 	_wait()
 	$"Tutorial".Active = true
 	$FadeToBlack.play("unfade")
+	
 	await get_tree().create_timer(1).timeout
 	$Tutorial/AnimationPlayer.play("text crawl")
 	await $Tutorial/AnimationPlayer.animation_finished

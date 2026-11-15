@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://gr54xdhaoqnr" path="res://computer_room.tscn" id="10_w48qg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lquwl"]
-radius = 299.99976
-height = 799.9995
+radius = 400.0
+height = 880.0
 
 [sub_resource type="Animation" id="Animation_272bh"]
 resource_name = "fade"
@@ -90,14 +90,12 @@ scale = Vector2(0.05000001, 0.05000001)
 script = ExtResource("3_lquwl")
 
 [node name="CursorSprite" type="Sprite2D" parent="Cursor" unique_id=986217873]
-position = Vector2(-1443.3096, -164.89453)
-rotation = -0.52359873
+position = Vector2(-100.00058, 259.9998)
 scale = Vector2(1.0363221, 0.91344684)
 texture = ExtResource("2_1bvp3")
-centered = false
 
 [node name="CursorHitbox" type="CollisionShape2D" parent="Cursor" unique_id=171217277]
-position = Vector2(-80.00293, 219.99951)
+position = Vector2(-100.00049, 200.00012)
 scale = Vector2(1, 0.9999999)
 shape = SubResource("CapsuleShape2D_lquwl")
 

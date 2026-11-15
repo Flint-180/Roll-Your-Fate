@@ -11,7 +11,7 @@ var off_light_texture = preload("res://sprites/light_button_off.png")
 
 var can_click = false
 var clicks = 0
-const CLICKS_NEEDED = 16
+const CLICKS_NEEDED = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
