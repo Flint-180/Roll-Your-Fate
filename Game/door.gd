@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 	if (!room.Active) or (!openReady): return
 	if hovering == true:
 		if Global.cursor.Punch:
-			$Kaboom.play()
 			punched.emit()
 
 

@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://b52gepmsi4qxl"]
 
+[ext_resource type="Script" uid="uid://dqxytti74pc8s" path="res://end_screen.gd" id="1_abjgy"]
+[ext_resource type="AudioStream" uid="uid://bfduvtkik0vdc" path="res://sounds/game jam happy.ogg" id="2_xu7hh"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3iaq5"]
 load_path = "res://.godot/imported/outside.png-457c97fc93306a1c14a96f9570d748f8.ctex"
 
 [node name="EndScreen" type="Node2D" unique_id=1967615744]
+script = ExtResource("1_abjgy")
 
 [node name="EndBackground" type="Sprite2D" parent="." unique_id=1268754642]
 scale = Vector2(0.8356482, 0.8343622)
 texture = SubResource("CompressedTexture2D_3iaq5")
 centered = false
+
+[node name="EndMusic" type="AudioStreamPlayer2D" parent="." unique_id=587752741]
+stream = ExtResource("2_xu7hh")

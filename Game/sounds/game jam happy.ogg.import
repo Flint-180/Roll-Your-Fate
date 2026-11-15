@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bfduvtkik0vdc"
+path="res://.godot/imported/game jam happy.ogg-c0a963673bd2e6f87f95ec536bfde813.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/game jam happy.ogg"
+dest_files=["res://.godot/imported/game jam happy.ogg-c0a963673bd2e6f87f95ec536bfde813.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
