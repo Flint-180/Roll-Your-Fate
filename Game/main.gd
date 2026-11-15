@@ -5,6 +5,8 @@ func _ready() -> void:
 	$Room2.Active = false
 	$Room3.Active = false
 	$Room4.Active = false
+	$RoomMark.Active = false
+	$Room6.Active = false
 	$Cursor.visible = false
 	$Music.play()
 
@@ -30,7 +32,6 @@ func _on_menu_cursor_on() -> void:
 	$"Tutorial".visible = true
 	_wait()
 	$"Tutorial".Active = true
-<<<<<<< Updated upstream
 	$FadeToBlack.play("unfade")
 	await get_tree().create_timer(1).timeout
 	$Tutorial/AnimationPlayer.play("text crawl")
@@ -39,22 +40,16 @@ func _on_menu_cursor_on() -> void:
 	$"Cursor".visible = true
 	$"Cursor".Active = true
 	Global.cursor = $Cursor
-=======
->>>>>>> Stashed changes
-
 
 func _on_room1_next_room() -> void:
 	_change_room("Tutorial", "Room2")
 
 func _on_room_2_next_room() -> void:
 	_change_room("Room2", "Room3")
-<<<<<<< Updated upstream
 	await get_tree().create_timer(.6).timeout
 	$Room3/AnimationPlayer.play("firepuzzle")
-=======
 	$Room3/AnimationPlayer/Fire.visible = true
 	$Room3/AnimationPlayer/Fire2.visible = true
->>>>>>> Stashed changes
 
 
 func _on_room_3_next_room() -> void:
@@ -62,4 +57,12 @@ func _on_room_3_next_room() -> void:
 
 
 func _on_room_4_next_room() -> void:
+	_change_room("Room4", "RoomMark")
+
+
+func _on_room_mark_next_room() -> void:
+	_change_room("RoomMark", "Room6")
+
+
+func _on_room_6_next_room() -> void:
 	get_tree().change_scene_to_file("res://end_screen.tscn")

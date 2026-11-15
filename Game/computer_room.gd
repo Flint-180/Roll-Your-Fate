@@ -50,7 +50,6 @@ func _process(delta: float) -> void:
 	$BitSound.play()
 	
 	if row_1 == [1, 0, 1, 0, 1, 0]:
-		print("Solved!")
 		for bit in row_textures:
 			bit.visible = false
 		$Computer/Monitor.texture = computer_crash
