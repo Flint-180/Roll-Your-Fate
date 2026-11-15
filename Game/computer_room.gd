@@ -27,6 +27,10 @@ var row_textures
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Arrow.visible = false
+	$Arrow.disable_mode = true
+	$Door.visible = true
+	$Door.openReady = false
 	row_textures = [bit0, bit1, bit2, bit3, bit4, bit5]
 	computer.Active = false
 
@@ -120,4 +124,15 @@ func _on_outer_area_body_entered(body: Node2D) -> void:
 
 func _on_computer_screen_hit() -> void:
 	$Computer/Monitor.texture = computer_smashed
-	#This will open the door too.
+	$OuterArea.monitorable = false
+	$OuterArea.monitoring = false
+	$Door.visible = false
+	$Arrow.visible = true
+	$ComputerSmashSound.play()
+	await get_tree().create_timer(0.05).timeout
+	$Arrow.monitoring = true
+
+
+func _on_arrow_next_room() -> void:
+	if(!Active): return
+	nextRoom.emit()
