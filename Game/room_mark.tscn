@@ -28,7 +28,7 @@ size = Vector2(574.9167, 721.8334)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyjom"]
 size = Vector2(156, 152)
 
-[node name="Room2" type="Node2D" unique_id=1680078702]
+[node name="RoomMark" type="Node2D" unique_id=1680078702]
 script = ExtResource("1_p2yuh")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=847334843]
