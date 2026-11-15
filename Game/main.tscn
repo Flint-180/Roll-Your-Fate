@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://u4giwqb464vq" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cfxc0yamfyv26" path="res://sprites/hand.png" id="2_1bvp3"]
-[ext_resource type="AudioStream" uid="uid://b11ryu8ny7s3n" path="res://sounds/game jam 4.ogg" id="2_272bh"]
+[ext_resource type="AudioStream" uid="uid://d4cw0gsk2w0d4" path="res://sprites/game jam 6 mix version.ogg" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://lvn2knnovlpk" path="res://room1.tscn" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://dfb0bukud8tui" path="res://cursor.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bswf2jrtm5ht3" path="res://menu.tscn" id="4_1bvp3"]
@@ -57,7 +57,7 @@ _data = {
 script = ExtResource("1_1bvp3")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=444982350]
-stream = ExtResource("2_272bh")
+stream = ExtResource("2_4c57u")
 
 [node name="Menu" parent="." unique_id=43580161 instance=ExtResource("4_1bvp3")]
 
