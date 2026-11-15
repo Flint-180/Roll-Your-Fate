@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 
 func _on_start_pressed() -> void:
 	cursorOn.emit()
+	
 
 
 func _on_quit_pressed() -> void:

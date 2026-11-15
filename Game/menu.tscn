@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://b6dxnfo5uwqlc" path="res://menu.gd" id="1_ouk20"]
 [ext_resource type="Texture2D" uid="uid://ststmb0xcner" path="res://sprites/outside_blur.png" id="2_4hy44"]
 [ext_resource type="Texture2D" uid="uid://drbwr1hf3w0b2" path="res://sprites/start_button_small.png" id="3_4hy44"]
+[ext_resource type="Texture2D" uid="uid://c82q6kl12i46n" path="res://sprites/logo_small.png" id="3_ytr4m"]
 [ext_resource type="Texture2D" uid="uid://ccat0xcop1ex5" path="res://sprites/quit_button.png" id="4_4hy44"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1aa2q"]
 
 [node name="Menu" type="Node2D" unique_id=43580161]
 script = ExtResource("1_ouk20")
@@ -17,22 +16,22 @@ texture = ExtResource("2_4hy44")
 centered = false
 
 [node name="Title" type="Sprite2D" parent="MenuBackground" unique_id=1734951446]
-position = Vector2(183.125, 103.125)
-scale = Vector2(227.62502, 97.3125)
-texture = SubResource("PlaceholderTexture2D_1aa2q")
+position = Vector2(152.61325, 97.69055)
+scale = Vector2(0.6198467, 0.6788439)
+texture = ExtResource("3_ytr4m")
 
 [node name="Start" type="TextureButton" parent="." unique_id=1036228971]
-offset_left = 106.0
+offset_left = 120.0
 offset_top = 364.0
-offset_right = 356.0
+offset_right = 370.0
 offset_bottom = 481.0
 texture_normal = ExtResource("3_4hy44")
 stretch_mode = 0
 
 [node name="Quit" type="TextureButton" parent="." unique_id=573272661]
-offset_left = 114.0
+offset_left = 125.0
 offset_top = 577.0
-offset_right = 364.0
+offset_right = 375.0
 offset_bottom = 705.0
 texture_normal = ExtResource("4_4hy44")
 metadata/_edit_use_anchors_ = true
