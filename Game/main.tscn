@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c47jy51iraix0" path="res://room_mark.tscn" id="8_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://bg6wu12wisaau" path="res://sprites/Black.png" id="9_kek77"]
 [ext_resource type="Script" uid="uid://bu0x1plb05a7" path="res://room_mark.gd" id="9_w48qg"]
+[ext_resource type="PackedScene" uid="uid://gr54xdhaoqnr" path="res://computer_room.tscn" id="10_w48qg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lquwl"]
 radius = 299.99976
@@ -82,6 +83,9 @@ visible = false
 visible = false
 script = ExtResource("9_w48qg")
 
+[node name="Room6" parent="." unique_id=1519670632 instance=ExtResource("10_w48qg")]
+visible = false
+
 [node name="Cursor" type="CharacterBody2D" parent="." unique_id=1713217566]
 position = Vector2(540, 405)
 scale = Vector2(0.05000001, 0.05000001)
@@ -118,3 +122,4 @@ texture = ExtResource("9_kek77")
 [connection signal="nextRoom" from="Room3" to="." method="_on_room_3_next_room"]
 [connection signal="nextRoom" from="Room4" to="." method="_on_room_4_next_room"]
 [connection signal="nextRoom" from="RoomMark" to="." method="_on_room_mark_next_room"]
+[connection signal="nextRoom" from="Room6" to="." method="_on_room_6_next_room"]
