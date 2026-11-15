@@ -9,6 +9,7 @@ var green_light_texture = preload("res://sprites/light_green.png")
 var red_light_texture = preload("res://sprites/light_red.png")
 var off_light_texture = preload("res://sprites/light_button_off.png")
 
+var door_enabled = true
 var can_click = false
 var clicks = 0
 const CLICKS_NEEDED = 10
@@ -40,9 +41,11 @@ func toggle_lights() -> void:
 
 func _on_door_punched() -> void:
 	if (!Active): return
+	if (!door_enabled): return
 	if can_click:
 		clicks += 1
 		if clicks >= CLICKS_NEEDED:
+			door_enabled = false
 			$Door/Kaboom.play()
 			$Door.visible = false
 			$Arrow.visible = true
