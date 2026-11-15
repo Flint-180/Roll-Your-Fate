@@ -7,18 +7,50 @@
 [ext_resource type="Script" uid="uid://dfb0bukud8tui" path="res://cursor.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bswf2jrtm5ht3" path="res://menu.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c45chxviappf1" path="res://room2.tscn" id="5_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cvhf3d1pkbtyc" path="res://room_3.tscn" id="6_kek77"]
 [ext_resource type="AudioStream" uid="uid://banba5soqk4to" path="res://sounds/PunchSoundEffect2.ogg" id="7_5vw27"]
+[ext_resource type="Texture2D" uid="uid://bg6wu12wisaau" path="res://sprites/Black.png" id="9_kek77"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lquwl"]
 radius = 299.99976
 height = 799.9995
 
 [sub_resource type="Animation" id="Animation_272bh"]
-resource_name = "new_animation"
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeToBlack/BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4c57u"]
+resource_name = "unfade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeToBlack/BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5vw27"]
 _data = {
-&"new_animation": SubResource("Animation_272bh")
+&"fade": SubResource("Animation_272bh"),
+&"unfade": SubResource("Animation_4c57u")
 }
 
 [node name="Main" type="Node" unique_id=49377690]
@@ -32,7 +64,10 @@ stream = ExtResource("2_272bh")
 [node name="Tutorial" parent="." unique_id=1680078702 instance=ExtResource("3_7mycd")]
 visible = false
 
-[node name="Room2 Demo" parent="." unique_id=1863758768 instance=ExtResource("5_5vw27")]
+[node name="Room2" parent="." unique_id=1294706245 instance=ExtResource("5_5vw27")]
+visible = false
+
+[node name="Room3" parent="." unique_id=109837786 instance=ExtResource("6_kek77")]
 visible = false
 
 [node name="Cursor" type="CharacterBody2D" parent="." unique_id=1713217566]
@@ -55,8 +90,16 @@ shape = SubResource("CapsuleShape2D_lquwl")
 [node name="PunchSound" type="AudioStreamPlayer2D" parent="Cursor" unique_id=230932881]
 stream = ExtResource("7_5vw27")
 
-[node name="FadeFromBlack" type="AnimationPlayer" parent="." unique_id=1710477477]
+[node name="FadeToBlack" type="AnimationPlayer" parent="." unique_id=1710477477]
 libraries/ = SubResource("AnimationLibrary_5vw27")
+
+[node name="BlackScreen" type="Sprite2D" parent="FadeToBlack" unique_id=1414806015]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(529, 413.5)
+scale = Vector2(1.274, 1.2573333)
+texture = ExtResource("9_kek77")
 
 [connection signal="cursorOn" from="Menu" to="." method="_on_menu_cursor_on"]
 [connection signal="nextRoom" from="Tutorial" to="." method="_on_room1_next_room"]
+[connection signal="nextRoom" from="Room2" to="." method="_on_room_2_next_room"]
+[connection signal="nextRoom" from="Room3" to="." method="_on_room_3_next_room"]
