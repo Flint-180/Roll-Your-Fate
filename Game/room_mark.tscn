@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://brerpjcu1rao3" path="res://sprites/computer.png" id="2_5vutl"]
 [ext_resource type="Script" uid="uid://dg1ih6w02kmkk" path="res://arrow.gd" id="2_nystt"]
 [ext_resource type="Texture2D" uid="uid://3uihmvqd7ofr" path="res://sprites/metal_door_punched.png" id="3_5vutl"]
-[ext_resource type="Texture2D" uid="uid://c7eb6nxvuf7rh" path="res://sprites/mark_screen.png" id="3_p140f"]
 [ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="4_p140f"]
 [ext_resource type="Script" uid="uid://bndt8i15av2qo" path="res://door.gd" id="5_7ru36"]
 [ext_resource type="Texture2D" uid="uid://y0rp5pw1yg04" path="res://sprites/metal_door.png" id="6_pewtb"]
@@ -18,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://dfvfyti5ysj8u" path="res://sprites/light_button_on.png" id="14_fiv5h"]
 [ext_resource type="Script" uid="uid://bg8ug1i1vhc1b" path="res://mark_controls.gd" id="15_3hf2k"]
 [ext_resource type="Script" uid="uid://b7h5htbyybh8p" path="res://left_button_mark.gd" id="15_y86ry"]
+[ext_resource type="Texture2D" uid="uid://wuksdu80cnsi" path="res://sprites/mark_arrow_blue.png" id="18_e1qap"]
+[ext_resource type="Texture2D" uid="uid://b0dr28vkc37qc" path="res://sprites/mark_arrow_orange.png" id="19_4pgv4"]
+[ext_resource type="Texture2D" uid="uid://dmh5ghhviy7lh" path="res://sprites/mark_arrow_green.png" id="20_xvu3y"]
+[ext_resource type="Texture2D" uid="uid://cbo6quft7eiie" path="res://sprites/mark_arrow_red.png" id="21_7nb3k"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7on73"]
 load_path = "res://.godot/imported/room_2_bg.png-20c02df0e3962d23cf305e013dd68ab6.ctex"
@@ -43,11 +46,6 @@ centered = false
 position = Vector2(872, 1693.3334)
 scale = Vector2(7.4862914, 7.486292)
 texture = ExtResource("2_5vutl")
-
-[node name="MarkScreen" type="Sprite2D" parent="Background/Computer" unique_id=1011627432]
-position = Vector2(-4.557785, -31.368439)
-scale = Vector2(0.15024655, 0.15024652)
-texture = ExtResource("3_p140f")
 
 [node name="Arrow" type="Area2D" parent="." unique_id=269523256]
 position = Vector2(242.00002, 370)
@@ -148,6 +146,26 @@ texture = ExtResource("14_fiv5h")
 position = Vector2(962, 182.00002)
 scale = Vector2(0.5808824, 0.5808824)
 texture = ExtResource("14_fiv5h")
+
+[node name="MarkArrowBlue" type="Sprite2D" parent="." unique_id=1539953497]
+position = Vector2(139.5, 515.59973)
+scale = Vector2(0.4364162, 0.43641624)
+texture = ExtResource("18_e1qap")
+
+[node name="MarkArrowOrange" type="Sprite2D" parent="." unique_id=180104411]
+position = Vector2(234.50002, 563.47546)
+scale = Vector2(0.5, 0.5000001)
+texture = ExtResource("19_4pgv4")
+
+[node name="MarkArrowGreen" type="Sprite2D" parent="." unique_id=532423297]
+position = Vector2(351, 523)
+scale = Vector2(0.57225436, 0.57225436)
+texture = ExtResource("20_xvu3y")
+
+[node name="MarkArrowRed" type="Sprite2D" parent="." unique_id=1123062540]
+position = Vector2(468.00006, 620)
+scale = Vector2(0.4682081, 0.4682081)
+texture = ExtResource("21_7nb3k")
 
 [connection signal="body_entered" from="Arrow" to="Arrow" method="_on_body_entered"]
 [connection signal="body_exited" from="Arrow" to="Arrow" method="_on_body_exited"]
