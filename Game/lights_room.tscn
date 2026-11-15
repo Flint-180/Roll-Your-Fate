@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://2w4jfexdmihi"]
+
+[ext_resource type="Script" uid="uid://ks5b55n6rxnh" path="res://lights_room.gd" id="1_myd2b"]
+[ext_resource type="Texture2D" uid="uid://eb5ooaevsdja" path="res://sprites/room_4.png" id="1_onle8"]
+[ext_resource type="Script" uid="uid://bndt8i15av2qo" path="res://door.gd" id="2_7cnxv"]
+[ext_resource type="Texture2D" uid="uid://db4phb8sh5hwk" path="res://sprites/door_purple.png" id="2_k27m6"]
+[ext_resource type="Texture2D" uid="uid://bm3ppkmnk4ir8" path="res://sprites/light_button_off.png" id="3_27tay"]
+[ext_resource type="AudioStream" uid="uid://cavoaj8bdan18" path="res://sounds/kaboom_bitcrushed_lower.ogg" id="5_5am63"]
+[ext_resource type="AudioStream" uid="uid://33p3twfohwfl" path="res://sounds/door_wrong_sound.ogg" id="6_drv2v"]
+[ext_resource type="Script" uid="uid://dg1ih6w02kmkk" path="res://arrow.gd" id="6_st42t"]
+[ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="8_drv2v"]
+[ext_resource type="Texture2D" uid="uid://cbsj2mwg80nsu" path="res://sprites/door_open_purple.png" id="9_drv2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hafb"]
+size = Vector2(192, 446)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiala"]
+size = Vector2(162.5, 84)
+
+[node name="Node2D" type="Node2D" unique_id=699156660]
+script = ExtResource("1_myd2b")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=668184476]
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("1_onle8")
+centered = false
+
+[node name="Door" type="Area2D" parent="." unique_id=1332752554]
+script = ExtResource("2_7cnxv")
+
+[node name="DoorCollision" type="CollisionShape2D" parent="Door" unique_id=1150587040]
+z_index = 1
+position = Vector2(775, 396)
+shape = SubResource("RectangleShape2D_8hafb")
+
+[node name="DoorSprite" type="Sprite2D" parent="Door" unique_id=89836425]
+position = Vector2(641, 157)
+texture = ExtResource("2_k27m6")
+centered = false
+
+[node name="Kaboom" type="AudioStreamPlayer2D" parent="Door" unique_id=229311290]
+stream = ExtResource("5_5am63")
+volume_db = 3.0
+
+[node name="DoorWrong" type="AudioStreamPlayer2D" parent="Door" unique_id=1666017909]
+stream = ExtResource("6_drv2v")
+volume_db = 3.0
+
+[node name="RedLight" type="Sprite2D" parent="." unique_id=557137592]
+position = Vector2(699, 96)
+texture = ExtResource("3_27tay")
+
+[node name="GreenLight" type="Sprite2D" parent="." unique_id=342566284]
+position = Vector2(847, 98)
+texture = ExtResource("3_27tay")
+
+[node name="Arrow" type="Area2D" parent="." unique_id=1699280669]
+position = Vector2(242.00002, 370)
+monitoring = false
+script = ExtResource("6_st42t")
+
+[node name="DoorSpriteOpen" type="Sprite2D" parent="Arrow" unique_id=1456437917]
+position = Vector2(357, -252)
+scale = Vector2(1.5515696, 1.2358078)
+texture = ExtResource("9_drv2v")
+centered = false
+
+[node name="ArrowSprite" type="Sprite2D" parent="Arrow" unique_id=742003465]
+position = Vector2(409, -27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_drv2v")
+centered = false
+
+[node name="ArrowCollision" type="CollisionShape2D" parent="Arrow" unique_id=813492884]
+position = Vector2(512, 35)
+shape = SubResource("RectangleShape2D_eiala")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[connection signal="punched" from="Door" to="." method="_on_door_punched"]
+[connection signal="body_entered" from="Arrow" to="Arrow" method="_on_body_entered"]
+[connection signal="body_exited" from="Arrow" to="Arrow" method="_on_body_exited"]
+[connection signal="nextRoom" from="Arrow" to="." method="_on_arrow_next_room"]

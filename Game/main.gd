@@ -4,6 +4,7 @@ extends Node
 func _ready() -> void:
 	$Room2.Active = false
 	$Room3.Active = false
+	$Room4.Active = false
 	$Cursor.visible = false
 	$Music.play()
 
@@ -44,4 +45,8 @@ func _on_room_2_next_room() -> void:
 
 
 func _on_room_3_next_room() -> void:
+	_change_room("Room3", "Room4")
+
+
+func _on_room_4_next_room() -> void:
 	get_tree().change_scene_to_file("res://end_screen.tscn")
