@@ -57,7 +57,8 @@ func _process(delta: float) -> void:
 		for bit in row_textures:
 			bit.visible = false
 		$Computer/Monitor.texture = computer_crash
-		await get_tree().create_timer(0.5).timeout
+		$ComputerCrashSound.play()
+		await get_tree().create_timer(1.0).timeout
 		computer.Active = true
 		
 	await get_tree().create_timer(0.5).timeout

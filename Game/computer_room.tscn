@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://dhotcl65dasb7" path="res://sprites/door_blue_open (1).png" id="12_u6uj6"]
 [ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="13_5rjwq"]
 [ext_resource type="AudioStream" uid="uid://cj04i65fcrncl" path="res://sounds/computer_explode_sound.ogg" id="14_u6uj6"]
+[ext_resource type="Texture2D" uid="uid://b1o2pue5kxvti" path="res://sprites/note_42.png" id="15_objf2"]
+[ext_resource type="Texture2D" uid="uid://bm6ms8k6i42bv" path="res://sprites/note.png" id="16_drkm2"]
+[ext_resource type="Texture2D" uid="uid://brq351v6yn3xk" path="res://sprites/exit_sign.png" id="17_drkm2"]
+[ext_resource type="AudioStream" uid="uid://daau1sgf8gglf" path="res://sounds/computer_crash.ogg" id="18_b4jep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gees1"]
 size = Vector2(192, 446)
@@ -187,6 +191,28 @@ shape = SubResource("RectangleShape2D_objf2")
 [node name="ComputerSmashSound" type="AudioStreamPlayer2D" parent="." unique_id=639017149]
 stream = ExtResource("14_u6uj6")
 volume_db = 4.0
+
+[node name="Note42" type="Sprite2D" parent="." unique_id=1733257889]
+position = Vector2(535, 109.999985)
+rotation = -0.08726646
+scale = Vector2(0.5021009, 0.50210094)
+texture = ExtResource("15_objf2")
+
+[node name="Note" type="Sprite2D" parent="." unique_id=1590588701]
+position = Vector2(789.99994, 122)
+rotation = 0.08726646
+scale = Vector2(0.37071452, 0.3707145)
+texture = ExtResource("16_drkm2")
+
+[node name="ExitSign" type="Sprite2D" parent="." unique_id=1695895305]
+position = Vector2(163, 84)
+rotation = -0.08726646
+scale = Vector2(1.0103946, 1.0103946)
+texture = ExtResource("17_drkm2")
+
+[node name="ComputerCrashSound" type="AudioStreamPlayer2D" parent="." unique_id=414358007]
+stream = ExtResource("18_b4jep")
+volume_db = 3.0
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
