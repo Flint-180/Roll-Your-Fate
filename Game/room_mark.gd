@@ -16,10 +16,10 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_puzzle_2_punched() -> void:
+func _on_door_punched() -> void:
 	if(!Active): return
-	$AnimationPlayer.play("Room2")
-
+	$Door/Kaboom.play()
+	$Door.visible = false
 	$Arrow.visible = true
 	await get_tree().create_timer(0.05).timeout
 	$Arrow.monitoring = true
