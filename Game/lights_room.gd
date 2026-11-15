@@ -18,6 +18,7 @@ func _ready() -> void:
 	$Arrow.visible = false
 	$Arrow.disable_mode = true
 	$Door.visible = true
+	$Door.openReady = true
 	toggle_lights()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,7 +40,6 @@ func toggle_lights() -> void:
 
 func _on_door_punched() -> void:
 	if can_click:
-		print("Click")
 		clicks += 1
 		if clicks >= CLICKS_NEEDED:
 			$Door/Kaboom.play()

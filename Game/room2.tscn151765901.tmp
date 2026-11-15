@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://c45chxviappf1"]
+
+[ext_resource type="Script" uid="uid://dorwbtt30dw2v" path="res://room2.gd" id="1_ie535"]
+[ext_resource type="AudioStream" uid="uid://cavoaj8bdan18" path="res://sounds/kaboom_bitcrushed_lower.ogg" id="2_1id8r"]
+[ext_resource type="Script" uid="uid://dg1ih6w02kmkk" path="res://arrow.gd" id="3_joxwf"]
+[ext_resource type="Texture2D" uid="uid://3uihmvqd7ofr" path="res://sprites/metal_door_punched.png" id="4_ie535"]
+[ext_resource type="Texture2D" uid="uid://cd625kjctgm2" path="res://sprites/green_arrow.png" id="5_1id8r"]
+[ext_resource type="Script" uid="uid://crk30xl6f3wnf" path="res://puzzle.gd" id="6_1id8r"]
+[ext_resource type="Texture2D" uid="uid://d4h1waktwxfnf" path="res://sprites/outlet.png" id="6_beyeo"]
+[ext_resource type="Texture2D" uid="uid://d1kygdm1jon66" path="res://sprites/outlet_with_plug.png" id="6_ie535"]
+[ext_resource type="Texture2D" uid="uid://y0rp5pw1yg04" path="res://sprites/metal_door.png" id="7_nq0ms"]
+[ext_resource type="Texture2D" uid="uid://beb8fvu4jmt6r" path="res://sprites/wire.png" id="9_1id8r"]
+[ext_resource type="Texture2D" uid="uid://fpk3max30j1f" path="res://sprites/fire_saturated.png" id="10_cv072"]
+
+[sub_resource type="Animation" id="Animation_jykgh"]
+resource_name = "Room2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Puzzle2/Plugged:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Puzzle2/Outlet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Puzzle2/Unplugged:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Puzzle2/Unplugged:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.4852751, 5.8974676]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoorSpriteClosed:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Puzzle2/Explosion:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Puzzle2/Explosion:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.6, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Puzzle2/Unplugged:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.05, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Puzzle2/Kaboom")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.31,
+"start_offset": 0.0,
+"stream": ExtResource("2_1id8r")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/8/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ntnr"]
+_data = {
+&"Room2": SubResource("Animation_jykgh")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7on73"]
+load_path = "res://.godot/imported/room_2_bg.png-20c02df0e3962d23cf305e013dd68ab6.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjg88"]
+size = Vector2(162.5, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aa2q"]
+size = Vector2(167.7995, 173.55739)
+
+[node name="Room2" type="Node2D" unique_id=1680078702]
+script = ExtResource("1_ie535")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485079108]
+libraries/ = SubResource("AnimationLibrary_0ntnr")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=847334843]
+scale = Vector2(0.375, 0.375)
+texture = SubResource("CompressedTexture2D_7on73")
+centered = false
+
+[node name="Arrow" type="Area2D" parent="." unique_id=269523256]
+position = Vector2(242.00002, 370)
+monitoring = false
+script = ExtResource("3_joxwf")
+
+[node name="DoorSpriteOpen" type="Sprite2D" parent="Arrow" unique_id=1693976087]
+position = Vector2(402, -297)
+scale = Vector2(0.26369864, 0.28051823)
+texture = ExtResource("4_ie535")
+centered = false
+
+[node name="ArrowSprite" type="Sprite2D" parent="Arrow" unique_id=961400329]
+position = Vector2(500, -42)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_1id8r")
+centered = false
+
+[node name="ArrowCollision" type="CollisionShape2D" parent="Arrow" unique_id=1885768986]
+position = Vector2(603, 20)
+shape = SubResource("RectangleShape2D_xjg88")
+
+[node name="DoorSpriteClosed" type="Sprite2D" parent="." unique_id=966881625]
+position = Vector2(644, 73)
+scale = Vector2(0.26746577, 0.28182608)
+texture = ExtResource("7_nq0ms")
+centered = false
+
+[node name="Puzzle2" type="Area2D" parent="." unique_id=172891531]
+scale = Vector2(0.375, 0.375)
+script = ExtResource("6_1id8r")
+
+[node name="PuzzleCollision" type="CollisionShape2D" parent="Puzzle2" unique_id=655711170]
+position = Vector2(818.6666, 1136)
+shape = SubResource("RectangleShape2D_1aa2q")
+
+[node name="Outlet" type="Sprite2D" parent="Puzzle2" unique_id=1657038819]
+visible = false
+position = Vector2(824, 1229.3334)
+scale = Vector2(2.974359, 2.7887669)
+texture = ExtResource("6_beyeo")
+
+[node name="Plugged" type="Sprite2D" parent="Puzzle2" unique_id=1400290637]
+position = Vector2(533.3334, 800)
+scale = Vector2(2.6340804, 2.4444442)
+texture = ExtResource("6_ie535")
+centered = false
+
+[node name="Unplugged" type="Sprite2D" parent="Puzzle2" unique_id=68937479]
+visible = false
+position = Vector2(1792.0002, 869.3334)
+rotation = 1.4852751
+scale = Vector2(4.2901974, 4.075095)
+skew = -0.03643346
+texture = ExtResource("9_1id8r")
+centered = false
+
+[node name="Explosion" type="Sprite2D" parent="Puzzle2" unique_id=164834786]
+visible = false
+position = Vector2(2245.3335, 1456)
+texture = ExtResource("10_cv072")
+
+[node name="Kaboom" type="AudioStreamPlayer2D" parent="Puzzle2" unique_id=104983830]
+
+[connection signal="body_entered" from="Arrow" to="Arrow" method="_on_body_entered"]
+[connection signal="body_exited" from="Arrow" to="Arrow" method="_on_body_exited"]
+[connection signal="nextRoom" from="Arrow" to="." method="_on_arrow_next_room"]
+[connection signal="body_entered" from="Puzzle2" to="Puzzle2" method="_on_body_entered"]
+[connection signal="body_exited" from="Puzzle2" to="Puzzle2" method="_on_body_exited"]
+[connection signal="punched" from="Puzzle2" to="." method="_on_puzzle_2_punched"]
