@@ -2,7 +2,7 @@ extends Area2D
 
 var hovering = false
 @onready var room = get_parent()
-@onready var mark_control = get_node("./Mark_Controls")
+@onready var mark_control = get_node("../Mark_Controls")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	if hovering == true:
 		if Global.cursor.Punch:
 			if mark_control.current_arrow == 0:
-				$Kaboom.play()
+				#$Kaboom.play()
 				#pressed.emit()
 				mark_control.current_arrow += 1
 			else: pass
